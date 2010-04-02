@@ -1,6 +1,6 @@
 task :default => :update
 
-desc "Update the docs"
+desc "Update the web site"
 task :update do |t|
   sh "git checkout master"
   sh "rake doc api"
