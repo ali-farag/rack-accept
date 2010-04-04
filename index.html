@@ -13,10 +13,10 @@
         <div id="header">
             <h1>rack-accept</h1>
             <ul>
-                <li><a href="license.html">License</a></li>
                 <li><a href="api/index.html">API</a></li>
                 <li><a href="http://github.com/mjijackson/rack-accept/issues">Bugs</a></li>
                 <li><a href="http://github.com/mjijackson/rack-accept">Code</a></li>
+                <li><a href="usage.html">Usage</a></li>
                 <li><a href="index.html">Home</a></li>
             </ul>
         </div>
@@ -48,61 +48,9 @@ headers</li>
 <pre><code>$ git clone git://github.com/mjijackson/rack-accept.git
 $ rake package &amp;&amp; sudo rake install
 </code></pre>
-
-<h2>Usage</h2>
-
-<p>Rack::Accept implements the Rack middleware interface and may be used with any
-Rack-based application. Simply insert the Rack::Accept module in your Rack
-middleware pipeline and access the <a href="api/classes/Rack/Accept/Request.html">Rack::Accept::Request</a> object in the
-&ldquo;rack-accept.request&rdquo; environment key, as in the following example:</p>
-
-<pre><code>require 'rack/accept'
-
-use Rack::Accept
-
-app = lambda {|env|
-  accept = env['rack-accept.request']
-  response = Rack::Response.new
-
-  if accept.media_type?('text/html')
-    response['Content-Type'] = 'text/html'
-    response.write "&lt;p&gt;Hello. You accept text/html!&lt;/p&gt;"
-  else
-    response['Content-Type'] = 'text/plain'
-    response.write "Apparently you don't accept text/html. Too bad."
-  end
-
-  response.finish
-}
-
-run app
-</code></pre>
-
-<p>Additionally, Rack::Accept may be used outside of a Rack context to provide
-any Ruby app the ability to construct and interpret Accept headers.</p>
-
-<pre><code>require 'rack/accept'
-
-mtype = Rack::Accept::MediaType.new
-mtype.qvalues = {
-  'text/html' =&gt; 1,
-  'text/*'    =&gt; 0.8,
-  '*/*'       =&gt; 0.5
-}
-
-mtype.to_s # =&gt; "Accept: text/html, text/*;q=0.8, */*;q=0.5"
-
-cset = Rack::Accept::Charset.new('unicode-1-1, iso-8859-5;q=0.8')
-cset.best_of(%w&lt; iso-8859-5 unicode-1-1 &gt;)  # =&gt; "unicode-1-1"
-cset.accept?('iso-8859-1')                  # =&gt; true
-</code></pre>
-
-<p>The very last line in this example may look like a mistake to someone not
-familiar with the intricacies of <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.3">the spec</a>, but it&rsquo;s actually
-correct. It just puts emphasis on the convenience of using this library.</p>
 </div>
         <div id="footer">
-            <p class="rights">Copyright &copy; 2010 <a href="http://mjijackson.com/about" rel="me author">Michael J. I. Jackson</a></p>
+            <p><a href="license.html" rel="license">Copyright</a> &copy; 2010 <a href="http://mjijackson.com/about" rel="me author">Michael J. I. Jackson</a></p>
         </div>
     </div>
 </body>
