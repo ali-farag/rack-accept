@@ -41,18 +41,19 @@
             <h2>Methods</h2>
             <h3>public class</h3>
             <ol>
-              <li><a href="#M000006">new</a></li>
+              <li><a href="#M000008">new</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000011">accept?</a></li>
-              <li><a href="#M000013">best_of</a></li>
-              <li><a href="#M000007">name</a></li>
-              <li><a href="#M000008">qvalue</a></li>
-              <li><a href="#M000012">sort</a></li>
-              <li><a href="#M000014">to_s</a></li>
-              <li><a href="#M000009">value</a></li>
-              <li><a href="#M000010">values</a></li>
+              <li><a href="#M000013">accept?</a></li>
+              <li><a href="#M000016">best_of</a></li>
+              <li><a href="#M000009">name</a></li>
+              <li><a href="#M000010">qvalue</a></li>
+              <li><a href="#M000015">sort</a></li>
+              <li><a href="#M000014">sort_with_qvalues</a></li>
+              <li><a href="#M000017">to_s</a></li>
+              <li><a href="#M000011">value</a></li>
+              <li><a href="#M000012">values</a></li>
             </ol>
           </div>
           <div id='section'>
@@ -74,22 +75,22 @@
             </div>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='method public-class' id='method-M000006'>
-                <a name='M000006'></a>
+              <div class='method public-class' id='method-M000008'>
+                <a name='M000008'></a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
                   <span class='arguments'>(header='')</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000006-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000008-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000006-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 53</span>&#x000A;53:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">header</span>=<span class="ruby-value str">''</span>)&#x000A;54:         <span class="ruby-ivar">@qvalues</span> = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">header</span>)&#x000A;55:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000008-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 71</span>&#x000A;71:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">header</span>=<span class="ruby-value str">''</span>)&#x000A;72:         <span class="ruby-ivar">@qvalues</span> = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">header</span>)&#x000A;73:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='method public-instance' id='method-M000011'>
-                <a name='M000011'></a>
+              <div class='method public-instance' id='method-M000013'>
+                <a name='M000013'></a>
                 <div class='synopsis'>
                   <span class='name'>accept?</span>
                   <span class='arguments'>(value)</span>
@@ -101,40 +102,33 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000011-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000013-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000011-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 81</span>&#x000A;81:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">accept?</span>(<span class="ruby-identifier">value</span>)&#x000A;82:         <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">value</span>) <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>&#x000A;83:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000013-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 99</span>&#x000A; 99:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">accept?</span>(<span class="ruby-identifier">value</span>)&#x000A;100:         <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">value</span>) <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>&#x000A;101:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000013'>
-                <a name='M000013'></a>
+              <div class='method public-instance' id='method-M000016'>
+                <a name='M000016'></a>
                 <div class='synopsis'>
                   <span class='name'>best_of</span>
                   <span class='arguments'>(values, keep_unacceptables=false)</span>
                 </div>
                 <div class='description'>
                   <p>
-                  Determines the most preferred value to use of those provided in
-                  <tt>values</tt>. See the documentation for <a
-                  href="PublicInstanceMethods.html#M000012">sort</a> for more information on
-                  exactly how the sorting is done.
-                  </p>
-                  <p>
-                  If <tt>keep_unacceptables</tt> is false (the default) and no values are
-                  acceptable the return value will be <tt>nil</tt>. Otherwise, the most
-                  acceptable value will be returned.
+                  A shortcut for retrieving the first result of <a
+                  href="PublicInstanceMethods.html#M000015">sort</a>.
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000013-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000016-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000013-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 109</span>&#x000A;109:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">best_of</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">keep_unacceptables</span>=<span class="ruby-keyword kw">false</span>)&#x000A;110:         <span class="ruby-identifier">s</span> = <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">values</span>)&#x000A;111:         <span class="ruby-identifier">s</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">q</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">q</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> } <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">keep_unacceptables</span>&#x000A;112:         <span class="ruby-identifier">s</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">first</span>[<span class="ruby-value">1</span>]&#x000A;113:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000016-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 137</span>&#x000A;137:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">best_of</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">keep_unacceptables</span>=<span class="ruby-keyword kw">false</span>)&#x000A;138:         <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">keep_unacceptables</span>).<span class="ruby-identifier">first</span>&#x000A;139:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000007'>
-                <a name='M000007'></a>
+              <div class='method public-instance' id='method-M000009'>
+                <a name='M000009'></a>
                 <div class='synopsis'>
                   <span class='name'>name</span>
                   <span class='arguments'>()</span>
@@ -146,14 +140,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000007-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000009-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000007-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 59</span>&#x000A;59:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>&#x000A;60:         <span class="ruby-value str">''</span>&#x000A;61:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000009-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 77</span>&#x000A;77:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>&#x000A;78:         <span class="ruby-value str">''</span>&#x000A;79:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000008'>
-                <a name='M000008'></a>
+              <div class='method public-instance' id='method-M000010'>
+                <a name='M000010'></a>
                 <div class='synopsis'>
                   <span class='name'>qvalue</span>
                   <span class='arguments'>(value)</span>
@@ -165,17 +159,38 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000008-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000010-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000008-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 65</span>&#x000A;65:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">value</span>)&#x000A;66:         <span class="ruby-value">1</span>&#x000A;67:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000010-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 83</span>&#x000A;83:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">value</span>)&#x000A;84:         <span class="ruby-value">1</span>&#x000A;85:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000012'>
-                <a name='M000012'></a>
+              <div class='method public-instance' id='method-M000015'>
+                <a name='M000015'></a>
                 <div class='synopsis'>
                   <span class='name'>sort</span>
-                  <span class='arguments'>(values)</span>
+                  <span class='arguments'>(values, keep_unacceptables=false)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Sorts the given <tt>values</tt> according to the qvalue of each while
+                  preserving the original order. See <a
+                  href="PublicInstanceMethods.html#M000014">sort_with_qvalues</a> for more
+                  information on exactly how the sort is performed.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000015-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 132</span>&#x000A;132:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">keep_unacceptables</span>=<span class="ruby-keyword kw">false</span>)&#x000A;133:         <span class="ruby-identifier">sort_with_qvalues</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">keep_unacceptables</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">q</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span> }&#x000A;134:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='method public-instance' id='method-M000014'>
+                <a name='M000014'></a>
+                <div class='synopsis'>
+                  <span class='name'>sort_with_qvalues</span>
+                  <span class='arguments'>(values, keep_unacceptables=true)</span>
                 </div>
                 <div class='description'>
                   <p>
@@ -184,25 +199,25 @@
                   two objects: 1) the value&#8217;s qvalue and 2) the original value.
                   </p>
                   <p>
-                  It is important to note that when performing this sort the order of the
-                  original values is preserved so long as the qvalue for each input value is
-                  the same. This expectation can be useful for example when trying to
+                  It is important to note that this sort is a &#8220;stable sort&#8221;. In
+                  other words, the order of the original values is preserved so long as the
+                  qvalue for each is the same. This expectation can be useful when trying to
                   determine which of a variety of options has the highest qvalue. If the user
                   prefers using one option over another (for any number of reasons), he
                   should put it first in <tt>values</tt>. He may then use the first result
-                  with confidence that it is both most acceptable to the user and most
+                  with confidence that it is both most acceptable to the client and most
                   convenient for him as well.
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000012-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000012-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 98</span>&#x000A; 98:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">values</span>)&#x000A; 99:         <span class="ruby-identifier">values</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">v</span>), <span class="ruby-identifier">v</span> ] }.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">reverse</span>&#x000A;100:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000014-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 116</span>&#x000A;116:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sort_with_qvalues</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">keep_unacceptables</span>=<span class="ruby-keyword kw">true</span>)&#x000A;117:         <span class="ruby-identifier">qvalues</span> = {}&#x000A;118:         <span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>&#x000A;119:           <span class="ruby-identifier">q</span> = <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">v</span>)&#x000A;120:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">q</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">keep_unacceptables</span>&#x000A;121:             <span class="ruby-identifier">qvalues</span>[<span class="ruby-identifier">q</span>] <span class="ruby-operator">||=</span> []&#x000A;122:             <span class="ruby-identifier">qvalues</span>[<span class="ruby-identifier">q</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>&#x000A;123:           <span class="ruby-keyword kw">end</span>&#x000A;124:         <span class="ruby-keyword kw">end</span>&#x000A;125:         <span class="ruby-identifier">order</span> = <span class="ruby-identifier">qvalues</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">reverse</span>&#x000A;126:         <span class="ruby-identifier">order</span>.<span class="ruby-identifier">inject</span>([]) {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span>, <span class="ruby-identifier">q</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">qvalues</span>[<span class="ruby-identifier">q</span>].<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">q</span>, <span class="ruby-identifier">v</span>] }) }&#x000A;127:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000014'>
-                <a name='M000014'></a>
+              <div class='method public-instance' id='method-M000017'>
+                <a name='M000017'></a>
                 <div class='synopsis'>
                   <span class='name'>to_s</span>
                   <span class='arguments'>()</span>
@@ -213,14 +228,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000017-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000014-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 116</span>&#x000A;116:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>&#x000A;117:         [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">': '</span>)&#x000A;118:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000017-source'>     <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 142</span>&#x000A;142:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>&#x000A;143:         [<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">': '</span>)&#x000A;144:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000009'>
-                <a name='M000009'></a>
+              <div class='method public-instance' id='method-M000011'>
+                <a name='M000011'></a>
                 <div class='synopsis'>
                   <span class='name'>value</span>
                   <span class='arguments'>()</span>
@@ -231,14 +246,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000009-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000011-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000009-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 70</span>&#x000A;70:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">value</span>&#x000A;71:         <span class="ruby-identifier">join</span>(<span class="ruby-ivar">@qvalues</span>)&#x000A;72:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000011-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 88</span>&#x000A;88:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">value</span>&#x000A;89:         <span class="ruby-identifier">join</span>(<span class="ruby-ivar">@qvalues</span>)&#x000A;90:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000010'>
-                <a name='M000010'></a>
+              <div class='method public-instance' id='method-M000012'>
+                <a name='M000012'></a>
                 <div class='synopsis'>
                   <span class='name'>values</span>
                   <span class='arguments'>()</span>
@@ -249,10 +264,10 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000010-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000012-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000010-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 75</span>&#x000A;75:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">values</span>&#x000A;76:         <span class="ruby-ivar">@qvalues</span>.<span class="ruby-identifier">keys</span>&#x000A;77:       <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000012-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/header.rb, line 93</span>&#x000A;93:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">values</span>&#x000A;94:         <span class="ruby-ivar">@qvalues</span>.<span class="ruby-identifier">keys</span>&#x000A;95:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

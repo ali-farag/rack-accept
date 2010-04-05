@@ -50,15 +50,15 @@
             <h2>Methods</h2>
             <h3>public class</h3>
             <ol>
-              <li><a href="#M000018">new</a></li>
+              <li><a href="#M000021">new</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000019">call</a></li>
-              <li><a href="#M000021">charsets=</a></li>
-              <li><a href="#M000022">encodings=</a></li>
-              <li><a href="#M000023">languages=</a></li>
-              <li><a href="#M000020">media_types=</a></li>
+              <li><a href="#M000022">call</a></li>
+              <li><a href="#M000024">charsets=</a></li>
+              <li><a href="#M000025">encodings=</a></li>
+              <li><a href="#M000026">languages=</a></li>
+              <li><a href="#M000023">media_types=</a></li>
             </ol>
           </div>
           <div id='section'>
@@ -80,22 +80,22 @@
             </div>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='method public-class' id='method-M000018'>
-                <a name='M000018'></a>
+              <div class='method public-class' id='method-M000021'>
+                <a name='M000021'></a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
                   <span class='arguments'>(app) {|self if block_given?| ...}</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000018-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000021-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000018-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 12</span>&#x000A;12:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>)&#x000A;13:       <span class="ruby-ivar">@app</span> = <span class="ruby-identifier">app</span>&#x000A;14:       <span class="ruby-ivar">@checks</span> = {}&#x000A;15:       <span class="ruby-ivar">@check_headers</span> = []&#x000A;16:       <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>&#x000A;17:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000021-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 12</span>&#x000A;12:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>)&#x000A;13:       <span class="ruby-ivar">@app</span> = <span class="ruby-identifier">app</span>&#x000A;14:       <span class="ruby-ivar">@checks</span> = {}&#x000A;15:       <span class="ruby-ivar">@check_headers</span> = []&#x000A;16:       <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>&#x000A;17:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='method public-instance' id='method-M000019'>
-                <a name='M000019'></a>
+              <div class='method public-instance' id='method-M000022'>
+                <a name='M000022'></a>
                 <div class='synopsis'>
                   <span class='name'>call</span>
                   <span class='arguments'>(env)</span>
@@ -108,14 +108,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000019-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000022-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000019-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 21</span>&#x000A;21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)&#x000A;22:       <span class="ruby-identifier">request</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack-accept.request'</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">env</span>)&#x000A;23:       <span class="ruby-identifier">check!</span>(<span class="ruby-identifier">request</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@checks</span>.<span class="ruby-identifier">empty?</span>&#x000A;24:       <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)&#x000A;25:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">AcceptError</span>&#x000A;26:       <span class="ruby-identifier">response</span> = <span class="ruby-constant">Response</span>.<span class="ruby-identifier">new</span>&#x000A;27:       <span class="ruby-identifier">response</span>.<span class="ruby-identifier">not_acceptable!</span>&#x000A;28:       <span class="ruby-identifier">response</span>.<span class="ruby-identifier">finish</span>&#x000A;29:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000022-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 21</span>&#x000A;21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)&#x000A;22:       <span class="ruby-identifier">request</span> = <span class="ruby-identifier">env</span>[<span class="ruby-value str">'rack-accept.request'</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">env</span>)&#x000A;23:       <span class="ruby-identifier">check!</span>(<span class="ruby-identifier">request</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@checks</span>.<span class="ruby-identifier">empty?</span>&#x000A;24:       <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)&#x000A;25:     <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">AcceptError</span>&#x000A;26:       <span class="ruby-identifier">response</span> = <span class="ruby-constant">Response</span>.<span class="ruby-identifier">new</span>&#x000A;27:       <span class="ruby-identifier">response</span>.<span class="ruby-identifier">not_acceptable!</span>&#x000A;28:       <span class="ruby-identifier">response</span>.<span class="ruby-identifier">finish</span>&#x000A;29:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000021'>
-                <a name='M000021'></a>
+              <div class='method public-instance' id='method-M000024'>
+                <a name='M000024'></a>
                 <div class='synopsis'>
                   <span class='name'>charsets=</span>
                   <span class='arguments'>(charsets)</span>
@@ -126,14 +126,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000021-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000024-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000021-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 37</span>&#x000A;37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">charsets=</span>(<span class="ruby-identifier">charsets</span>)&#x000A;38:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:charset</span>, <span class="ruby-identifier">charsets</span>)&#x000A;39:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000024-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 37</span>&#x000A;37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">charsets=</span>(<span class="ruby-identifier">charsets</span>)&#x000A;38:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:charset</span>, <span class="ruby-identifier">charsets</span>)&#x000A;39:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000022'>
-                <a name='M000022'></a>
+              <div class='method public-instance' id='method-M000025'>
+                <a name='M000025'></a>
                 <div class='synopsis'>
                   <span class='name'>encodings=</span>
                   <span class='arguments'>(encodings)</span>
@@ -144,14 +144,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000022-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000025-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000022-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 42</span>&#x000A;42:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encodings=</span>(<span class="ruby-identifier">encodings</span>)&#x000A;43:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:encoding</span>, <span class="ruby-identifier">encodings</span>)&#x000A;44:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000025-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 42</span>&#x000A;42:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">encodings=</span>(<span class="ruby-identifier">encodings</span>)&#x000A;43:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:encoding</span>, <span class="ruby-identifier">encodings</span>)&#x000A;44:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000023'>
-                <a name='M000023'></a>
+              <div class='method public-instance' id='method-M000026'>
+                <a name='M000026'></a>
                 <div class='synopsis'>
                   <span class='name'>languages=</span>
                   <span class='arguments'>(languages)</span>
@@ -162,14 +162,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000023-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000026-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000023-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 47</span>&#x000A;47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">languages=</span>(<span class="ruby-identifier">languages</span>)&#x000A;48:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:language</span>, <span class="ruby-identifier">languages</span>)&#x000A;49:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000026-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 47</span>&#x000A;47:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">languages=</span>(<span class="ruby-identifier">languages</span>)&#x000A;48:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:language</span>, <span class="ruby-identifier">languages</span>)&#x000A;49:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000020'>
-                <a name='M000020'></a>
+              <div class='method public-instance' id='method-M000023'>
+                <a name='M000023'></a>
                 <div class='synopsis'>
                   <span class='name'>media_types=</span>
                   <span class='arguments'>(media_types)</span>
@@ -180,10 +180,10 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000020-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000023-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000020-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 32</span>&#x000A;32:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">media_types=</span>(<span class="ruby-identifier">media_types</span>)&#x000A;33:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:media_type</span>, <span class="ruby-identifier">media_types</span>)&#x000A;34:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000023-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/context.rb, line 32</span>&#x000A;32:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">media_types=</span>(<span class="ruby-identifier">media_types</span>)&#x000A;33:       <span class="ruby-identifier">add_check</span>(<span class="ruby-identifier">:media_type</span>, <span class="ruby-identifier">media_types</span>)&#x000A;34:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>
