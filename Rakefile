@@ -54,7 +54,7 @@ task :doc do
 end
 
 desc 'Update the entire site'
-task :update => do
+task :update do
   docs = switch_master do
     generate_api
     fetch_docs
