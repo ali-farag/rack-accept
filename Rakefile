@@ -31,6 +31,8 @@ end
 
 # Generate the HTML docs.
 def generate_docs(docs)
+  require 'erb'
+  require 'rdiscount'
   layout = ERB.new(File.read('erb/layout.html.erb'), 0, '%<>')
   docs.each do |file, source|
     content = Markdown.new(source, :smart).to_html
