@@ -48,13 +48,16 @@
             determining acceptable media types.
             </p>
             <p>
-            See <a
-            href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html</a>
-            for more information.
+            <a
+            href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1">www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1</a>
             </p>
           </div>
           <div id='method-list'>
             <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000036">new</a></li>
+            </ol>
             <h3>public instance</h3>
             <ol>
               <li><a href="#M000035">matches</a></li>
@@ -72,6 +75,20 @@
           </div>
           <div id='section'>
             <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='method public-class' id='method-M000036'>
+                <a name='M000036'></a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(header)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000036-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000036-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/media_type.rb, line 44</span>&#x000A;44:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">header</span>)&#x000A;45:       <span class="ruby-comment cmt"># Strip accept-extension for now. We may want to do something with this</span>&#x000A;46:       <span class="ruby-comment cmt"># later if people actually start to use it.</span>&#x000A;47:       <span class="ruby-identifier">header</span> = <span class="ruby-identifier">header</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/,\s*/</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>&#x000A;48:         <span class="ruby-identifier">part</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">/(;\s*q\s*=\s*[\d.]+).*$/</span>, <span class="ruby-value str">'\1'</span>)&#x000A;49:       }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">', '</span>)&#x000A;50: &#x000A;51:       <span class="ruby-keyword kw">super</span>(<span class="ruby-identifier">header</span>)&#x000A;52:     <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
               <h2>Public instance methods</h2>
               <div class='method public-instance' id='method-M000035'>
                 <a name='M000035'></a>
@@ -89,7 +106,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000035-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000035-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/media_type.rb, line 28</span>&#x000A;28:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">matches</span>(<span class="ruby-identifier">media_type</span>)&#x000A;29:       <span class="ruby-identifier">type</span>, <span class="ruby-identifier">subtype</span>, <span class="ruby-identifier">params</span> = <span class="ruby-identifier">parse_media_type</span>(<span class="ruby-identifier">media_type</span>)&#x000A;30:       <span class="ruby-identifier">values</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>&#x000A;31:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">media_type</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'*/*'</span>&#x000A;32:           <span class="ruby-keyword kw">true</span>&#x000A;33:         <span class="ruby-keyword kw">else</span>&#x000A;34:           <span class="ruby-identifier">t</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">p</span> = <span class="ruby-identifier">parse_media_type</span>(<span class="ruby-identifier">v</span>)&#x000A;35:           <span class="ruby-identifier">t</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">s</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'*'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">subtype</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">p</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">params_match?</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">p</span>))&#x000A;36:         <span class="ruby-keyword kw">end</span>&#x000A;37:       }.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>&#x000A;38:         <span class="ruby-comment cmt"># Most specific gets precedence.</span>&#x000A;39:         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">length</span>&#x000A;40:       }.<span class="ruby-identifier">reverse</span>&#x000A;41:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000035-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/media_type.rb, line 27</span>&#x000A;27:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">matches</span>(<span class="ruby-identifier">media_type</span>)&#x000A;28:       <span class="ruby-identifier">type</span>, <span class="ruby-identifier">subtype</span>, <span class="ruby-identifier">params</span> = <span class="ruby-identifier">parse_media_type</span>(<span class="ruby-identifier">media_type</span>)&#x000A;29:       <span class="ruby-identifier">values</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>&#x000A;30:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">media_type</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'*/*'</span>&#x000A;31:           <span class="ruby-keyword kw">true</span>&#x000A;32:         <span class="ruby-keyword kw">else</span>&#x000A;33:           <span class="ruby-identifier">t</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">p</span> = <span class="ruby-identifier">parse_media_type</span>(<span class="ruby-identifier">v</span>)&#x000A;34:           <span class="ruby-identifier">t</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">s</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'*'</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">subtype</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">p</span> <span class="ruby-operator">==</span> <span class="ruby-value str">''</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">params_match?</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">p</span>))&#x000A;35:         <span class="ruby-keyword kw">end</span>&#x000A;36:       }.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>&#x000A;37:         <span class="ruby-comment cmt"># Most specific gets precedence.</span>&#x000A;38:         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">length</span>&#x000A;39:       }.<span class="ruby-identifier">reverse</span>&#x000A;40:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <div class='method public-instance' id='method-M000033'>
@@ -107,7 +124,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000033-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000033-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/media_type.rb, line 14</span>&#x000A;14:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>&#x000A;15:       <span class="ruby-value str">'Accept'</span>&#x000A;16:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000033-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/media_type.rb, line 13</span>&#x000A;13:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>&#x000A;14:       <span class="ruby-value str">'Accept'</span>&#x000A;15:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <div class='method public-instance' id='method-M000034'>
@@ -125,7 +142,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000034-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000034-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/media_type.rb, line 19</span>&#x000A;19:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">media_type</span>)&#x000A;20:       <span class="ruby-keyword kw">return</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@qvalues</span>.<span class="ruby-identifier">empty?</span>&#x000A;21:       <span class="ruby-identifier">m</span> = <span class="ruby-identifier">matches</span>(<span class="ruby-identifier">media_type</span>)&#x000A;22:       <span class="ruby-keyword kw">return</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">empty?</span>&#x000A;23:       <span class="ruby-identifier">normalize_qvalue</span>(<span class="ruby-ivar">@qvalues</span>[<span class="ruby-identifier">m</span>.<span class="ruby-identifier">first</span>])&#x000A;24:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000034-source'>    <span class="ruby-comment cmt"># File lib/rack/accept/media_type.rb, line 18</span>&#x000A;18:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">qvalue</span>(<span class="ruby-identifier">media_type</span>)&#x000A;19:       <span class="ruby-keyword kw">return</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@qvalues</span>.<span class="ruby-identifier">empty?</span>&#x000A;20:       <span class="ruby-identifier">m</span> = <span class="ruby-identifier">matches</span>(<span class="ruby-identifier">media_type</span>)&#x000A;21:       <span class="ruby-keyword kw">return</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">empty?</span>&#x000A;22:       <span class="ruby-identifier">normalize_qvalue</span>(<span class="ruby-ivar">@qvalues</span>[<span class="ruby-identifier">m</span>.<span class="ruby-identifier">first</span>])&#x000A;23:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

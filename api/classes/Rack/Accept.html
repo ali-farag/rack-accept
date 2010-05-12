@@ -31,10 +31,10 @@
         </h1>
         <ol class='paths'>
           <li>
-            <a href="../../files/lib/rack/accept/charset_rb.html">lib/rack/accept/charset.rb</a>
+            <a href="../../files/lib/rack/accept/context_rb.html">lib/rack/accept/context.rb</a>
           </li>
           <li class='other'>
-            <a href="../../files/lib/rack/accept/context_rb.html">lib/rack/accept/context.rb</a>
+            <a href="../../files/lib/rack/accept/charset_rb.html">lib/rack/accept/charset.rb</a>
           </li>
           <li class='other'>
             <a href="../../files/lib/rack/accept/encoding_rb.html">lib/rack/accept/encoding.rb</a>
@@ -64,6 +64,14 @@
       </div>
       <div id='content'>
         <div id='text'>
+          <div id='description'>
+            <p>
+            HTTP Accept* for Ruby/Rack.
+            </p>
+            <p>
+            <a href="http://mjijackson.com/rack-accept">mjijackson.com/rack-accept</a>
+            </p>
+          </div>
           <div id='method-list'>
             <h2>Methods</h2>
             <h3>public class</h3>
@@ -91,12 +99,7 @@
                   <tr class='top-aligned-row context-row'>
                     <td class='context-item-name'>VERSION</td>
                     <td>=</td>
-                    <td class='context-item-value'>[0, 4, 1]</td>
-                    <td>&nbsp;</td>
-                    <td class='context-item-desc'>
-                      
-                      The current version of rack-accept.
-                    </td>
+                    <td class='context-item-value'>[0, 4, 2]</td>
                   </tr>
                 </table>
               </div>
@@ -119,7 +122,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000002-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000002-source'>    <span class="ruby-comment cmt"># File lib/rack/accept.rb, line 14</span>&#x000A;14:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;15:     <span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;16:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000002-source'>    <span class="ruby-comment cmt"># File lib/rack/accept.rb, line 15</span>&#x000A;15:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;16:     <span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;17:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <div class='method public-class' id='method-M000001'>
@@ -130,14 +133,15 @@
                 </div>
                 <div class='description'>
                   <p>
-                  Returns the current version of rack-accept as a string.
+                  Returns the current version of <a href="Accept.html">Rack::Accept</a> as a
+                  string.
                   </p>
                 </div>
                 <div class='source'>
                   <a class='source-toggle' href='#' onclick="toggleCode('M000001-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000001-source'>    <span class="ruby-comment cmt"># File lib/rack/accept.rb, line 9</span>&#x000A; 9:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span>&#x000A;10:     <span class="ruby-constant">VERSION</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)&#x000A;11:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000001-source'>    <span class="ruby-comment cmt"># File lib/rack/accept.rb, line 10</span>&#x000A;10:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span>&#x000A;11:     <span class="ruby-constant">VERSION</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)&#x000A;12:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>
