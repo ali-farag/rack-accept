@@ -6,7 +6,7 @@ def switch_master
   sh 'git checkout master'
   ret = yield if block_given?
   sh 'git checkout gh-pages'
-  sh 'git stash pop'
+  sh 'git stash pop' rescue nil
   ret
 end
 
