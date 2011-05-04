@@ -34,10 +34,10 @@
             <a href="../../files/lib/rack/accept/charset_rb.html">lib/rack/accept/charset.rb</a>
           </li>
           <li class='other'>
-            <a href="../../files/lib/rack/accept/encoding_rb.html">lib/rack/accept/encoding.rb</a>
+            <a href="../../files/lib/rack/accept/context_rb.html">lib/rack/accept/context.rb</a>
           </li>
           <li class='other'>
-            <a href="../../files/lib/rack/accept/context_rb.html">lib/rack/accept/context.rb</a>
+            <a href="../../files/lib/rack/accept/encoding_rb.html">lib/rack/accept/encoding.rb</a>
           </li>
           <li class='other'>
             <a href="../../files/lib/rack/accept/header_rb.html">lib/rack/accept/header.rb</a>
@@ -53,6 +53,9 @@
           </li>
           <li class='other'>
             <a href="../../files/lib/rack/accept/response_rb.html">lib/rack/accept/response.rb</a>
+          </li>
+          <li class='other'>
+            <a href="../../files/lib/rack/accept/version_rb.html">lib/rack/accept/version.rb</a>
           </li>
           <li class='other'>
             <a href="../../files/lib/rack/accept_rb.html">lib/rack/accept.rb</a>
@@ -99,7 +102,7 @@
                   <tr class='top-aligned-row context-row'>
                     <td class='context-item-name'>VERSION</td>
                     <td>=</td>
-                    <td class='context-item-value'>[0, 4, 2]</td>
+                    <td class='context-item-value'>[0, 4, 4]</td>
                   </tr>
                 </table>
               </div>
@@ -122,7 +125,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000002-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000002-source'>    <span class="ruby-comment cmt"># File lib/rack/accept.rb, line 15</span>&#x000A;15:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;16:     <span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;17:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000002-source'>    <span class="ruby-comment cmt"># File lib/rack/accept.rb, line 8</span>&#x000A; 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A; 9:     <span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">app</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)&#x000A;10:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <div class='method public-class' id='method-M000001'>
@@ -141,7 +144,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000001-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000001-source'>    <span class="ruby-comment cmt"># File lib/rack/accept.rb, line 10</span>&#x000A;10:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span>&#x000A;11:     <span class="ruby-constant">VERSION</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)&#x000A;12:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000001-source'>   <span class="ruby-comment cmt"># File lib/rack/accept/version.rb, line 6</span>&#x000A;6:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">version</span>&#x000A;7:       <span class="ruby-constant">VERSION</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">'.'</span>)&#x000A;8:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>
